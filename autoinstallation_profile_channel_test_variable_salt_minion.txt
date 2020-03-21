@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<!DOCTYPE profile>
+<profile xmlns="http://www.suse.com/1.0/yast2ns" xmlns:config="http://www.suse.com/1.0/configns">
+   <add-on>
+    <add_on_products config:type="list">
+     <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-manager-tools15-pool-x86_64-sp1/$distro_label</media_url>
+        <name>$channel_prefix SLE-15-SP1-Manager-Tools Pool</name>
+        <product>SLE15-SM Tools Pool</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-manager-tools15-updates-x86_64-sp1/$distro_label</media_url>
+        <name>$channel_prefix SLE-15-Manager-Tools Updates</name>
+        <product>SLE15-SM Tools Updates</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-product-sles15-sp1-updates-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLES15-SP1 Updates</name>
+        <product>SLES15 SP1 Updates</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-web-scripting15-sp1-pool-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-Web-Scripting15-SP1 Pool for x86_64 </name>
+        <product>Web Scripting Module 15 SP1 x86_64 Pool</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-basesystem15-sp1-pool-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-Basesystem15-SP1 Pool for x86_64 </name>
+        <product>Basesystem Module 15 SP1 x86_64 Pool</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-basesystem15-sp1-updates-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-Basesystem15-SP1 Updates for x86_64 </name>
+        <product>Basesystem Module 15 SP1 x86_64 Updates</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-desktop-applications15-sp1-pool-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-Desktop-Applications15-SP1 Pool for x86_64 </name>
+        <product>Desktop Applications Module 15 SP1 x86_64 Pool</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-desktop-applications15-sp1-updates-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-Desktop-Applications15-SP1 Updates for x86_64 </name>
+        <product>Desktop Applications Module 15 SP1 x86_64 Updates</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-server-applications15-sp1-pool-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-Server-Applications15-SP1 Pool for x86_64 </name>
+        <product>Server Applications Module 15 SP1 x86_64 Pool</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-server-applications15-sp1-updates-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-Server-Applications15-SP1 Updates for x86_64 </name>
+        <product>Server Applications Module 15 SP1 x86_64 Updates</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-web-scripting15-sp1-updates-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-Web-Scripting15-SP1 Updates for x86_64 </name>
+        <product>Web Scripting Module 15 SP1 x86_64 Updates</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-legacy15-sp1-pool-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-Legacy15-SP1 Pool for x86_64 </name>
+        <product>Legacy Module 15 SP1 x86_64 Pool</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-legacy15-sp1-updates-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-Legacy15-SP1-Updates for x86_64 </name>
+        <product>Legacy Module 15 SP1 x86_64 Updates</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-python2-15-sp1-pool-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-Python2-15-SP1-Pool for x86_64</name>
+        <product>Python2 Module 15 SP1 x86_64 Pool</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-python2-15-sp1-updates-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-Python2-15-SP1-Updates for x86_64</name>
+        <product>Python2 Module 15 SP1 x86_64 Updates</product>
+      </listentry>
+       <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-devtools15-sp1-pool-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-DevTools15-SP1-Pool for x86_64</name>
+        <product>DevTools Module 15 SP1 x86_64 Pool</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-devtools15-sp1-updates-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-DevTools15-SP1-Updates for x86_64</name>
+        <product>DevTools Module 15 SP1 x86_64 Updates</product>
+      </listentry>
+          <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-public-cloud15-sp1-pool-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-Public-Cloud15-SP1-Pool for x86_64</name>
+        <product>Public Cloud Module 15 SP1 x86_64 Pool</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-public-cloud15-sp1-updates-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-Public-Cloud15-SP1-Updates for x86_64</name>
+        <product>Public Cloud Module 15 SP1 x86_64 Updates</product>
+      </listentry>
+       <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-containers15-sp1-pool-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-Containers15-SP1 Pool for x86_64 </name>
+        <product>Containers Module 15 SP1 x86_64 Pool</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-containers15-sp1-updates-x86_64/$distro_label</media_url>
+        <name>$channel_prefix SLE-Module-Containers15-SP1-Updates for x86_64 </name>
+        <product>Containers Module 15 SP1 x86_64 Updates</product>
+      </listentry>
+    </add_on_products>
+  </add-on>
+  <upgrade>
+    <only_installed_packages config:type="boolean">false</only_installed_packages>
+    <stop_on_solver_conflict config:type="boolean">true</stop_on_solver_conflict>
+  </upgrade>
+  <software>
+    <products config:type="list">
+      <product>SLES</product>
+    </products>
+    <packages config:type="list">
+      <package>autoyast2-installation</package>
+    </packages>
+    <patterns config:type="list">
+      <pattern>base</pattern>
+    </patterns>
+  <remove-packages  config:type="list">
+      <package>desktop-data-SLED</package>
+      <package>acpid</package>
+      <package>SuSEfirewall2</package>
+      <package>lukemftp</package>
+  </remove-packages>
+  </software>
+  <backup>
+    <sysconfig config:type="boolean">true</sysconfig>
+    <modified config:type="boolean">true</modified>
+    <remove_old config:type="boolean">false</remove_old>
+  </backup>
+  <networking>
+    <keep_install_network config:type="boolean">true</keep_install_network>
+    <start_immediately config:type="boolean">true</start_immediately>
+  </networking>
+<general>
+  <signature-handling>
+    <accept_unsigned_file         config:type="boolean">true</accept_unsigned_file>
+    <accept_file_without_checksum config:type="boolean">true</accept_file_without_checksum>
+    <accept_verification_failed   config:type="boolean">true</accept_verification_failed>
+    <accept_unknown_gpg_key       config:type="boolean">true</accept_unknown_gpg_key>
+    <import_gpg_key               config:type="boolean">true</import_gpg_key>
+    <accept_non_trusted_gpg_key   config:type="boolean">true</accept_non_trusted_gpg_key>
+  </signature-handling>
+  <mode>
+    <confirm config:type="boolean">false</confirm>
+  </mode>
+</general>
+<scripts>
+  <init-scripts config:type="list">
+    <script>
+        <debug config:type="boolean">true</debug>
+        <feedback config:type="boolean">false</feedback>
+        <filename>01_remove_bad_key</filename>
+        <interpreter>shell</interpreter>
+        <location/>
+        <network_needed config:type="boolean">true</network_needed>
+        <notification>Remove bad key</notification>
+        <source><![CDATA[
+rpm -e gpg-pubkey-3d25d3d9-36e12d04 > /tmp/clean11
+zypper -n rm desktop-data-SLED-11 acpid >> /tmp/clean11
+cat <<EOF >"/etc/salt/minion.d/susemanager.conf"
+master: $redhat_management_server
+
+EOF
+#if $varExists('registration_key') or $varExists('redhat_management_key')
+cat <<EOF >>"/etc/salt/minion.d/susemanager.conf"
+grains:
+    susemanager:
+EOF
+#end if
+#if $varExists('redhat_management_key')
+cat <<EOF >>"/etc/salt/minion.d/susemanager.conf"
+        management_key: "$redhat_management_key"
+EOF
+#end if
+#if $varExists('registration_key')
+cat <<EOF >>"/etc/salt/minion.d/susemanager.conf"
+        activation_key: "$registration_key"
+EOF
+#end if
+
+
+#if not $varExists('dont_register')
+# if you don't want to register, set the 'dont_register' variable
+
+systemctl restart salt-minion
+systemctl enable salt-minion
+#end if
+
+#if not $varExists('dont_disable_automatic_onlineupdate')
+YAOU_SYSCFGFILE="/etc/sysconfig/automatic_online_update"
+if [ -f "$YAOU_SYSCFGFILE" ]; then
+  echo "* Disable YAST automatic online update."
+  sed -i 's/^ *AOU_ENABLE_CRONJOB.*/AOU_ENABLE_CRONJOB="false"/' "$YAOU_SYSCFGFILE"
+  for D in /etc/cron.*; do
+    test -L $D/opensuse.org-online_update && rm $D/opensuse.org-online_update
+  done
+fi
+#end if
+
+#if not $varExists('dont_disable_local_repos')
+echo "* Disable all repos not provided by SUSE Manager Server."
+zypper ms -d --all
+zypper ms -e --medium-type plugin
+zypper mr -d --all
+zypper mr -e --medium-type plugin
+#end if
+                ]]></source>
+     </script>
+  </init-scripts>
+</scripts>
+</profile>
