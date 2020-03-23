@@ -233,6 +233,7 @@ zypper ms -d --all
 zypper ms -e --medium-type plugin
 zypper mr -d --all
 zypper mr -e --medium-type plugin
+rm -rf /etc/zypp/repos.d/http-*
 #end if
                 ]]></source>
      </script>
