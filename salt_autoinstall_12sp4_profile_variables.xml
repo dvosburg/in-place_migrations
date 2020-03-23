@@ -169,7 +169,6 @@ rm -rf /etc/zypp/repos.d/http-*
     <remove-packages  config:type="list">
       <package>desktop-data-SLED-11</package>
       <package>acpid</package>
-      <package>SuSEfirewall2</package>
   </remove-packages>
     <packages config:type="list">
       <package>autoyast2-installation</package>
