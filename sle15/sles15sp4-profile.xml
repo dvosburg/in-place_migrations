@@ -282,6 +282,9 @@ registration_key='activation_key_for_post_upgrade'
       <package>autoyast2-installation</package>
       <package>sle-manager-tools-release</package>
       <package>issue-generator</package>
+      <!-- Use salt bundle by default, uncomment salt-minion if needed.  This should match your original system. -->
+      <package>venv-salt-minion</package>
+      <!--<package>salt-minion</package> -->
     </packages>
     <patterns config:type="list">
       <pattern>base</pattern>
