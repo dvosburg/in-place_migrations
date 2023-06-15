@@ -378,7 +378,6 @@ registration_key='activation_key_for_post_upgrade'
       <package>libsepol1-32bit</package>
       <package>libustr-1_0-1-32bit</package>
       <package>libx86emu1</package>
-      <package>libzvbi0</package>
       <package>listres</package>
       <package>mingetty</package>
       <package>os-prober</package>
