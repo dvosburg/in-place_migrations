@@ -172,9 +172,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-legacy15-sp3-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-legacy15-sp3-updates-$arch/$distrotree</media_url>
         #else
-        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-legacy15-sp3-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-legacy15-sp3-updates-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Legacy15-SP3-Updates for $arch </name>
         <product>sle-module-legacy</product>
