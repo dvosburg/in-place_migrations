@@ -379,7 +379,7 @@ zypper ms -e --medium-type plugin
 zypper mr -d --all
 zypper mr -e --medium-type plugin
 rm -rf /etc/zypp/repos.d/http*
-rm -rf /mnt/etc/zypp/repos.d/space* >/mnt/tmp/removed-at-chroot
+rm -rf /mnt/etc/zypp/repos.d/suseman* >/mnt/tmp/removed-at-chroot
 /usr/bin/wget -nv -r -nd --no-check-certificate https://$redhat_management_server/pub/RHN-ORG-TRUSTED-SSL-CERT
 mv RHN-ORG-TRUSTED-SSL-CERT /mnt/etc/pki/trust/anchors/
 /usr/sbin/update-ca-certificates
