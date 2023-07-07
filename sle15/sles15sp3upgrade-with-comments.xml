@@ -292,7 +292,6 @@ registration_key='activation_key_for_post_upgrade'
     </add_on_products>
   </add-on>
   <upgrade>
-    <only_installed_packages config:type="boolean">false</only_installed_packages>
     <stop_on_solver_conflict config:type="boolean">true</stop_on_solver_conflict>
   </upgrade>
   <software>
