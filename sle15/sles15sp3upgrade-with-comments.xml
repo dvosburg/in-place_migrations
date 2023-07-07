@@ -361,6 +361,7 @@ registration_key='activation_key_for_post_upgrade'
 /usr/bin/wget -nv -r -nd --no-check-certificate https://$redhat_management_server/pub/RHN-ORG-TRUSTED-SSL-CERT
 mv RHN-ORG-TRUSTED-SSL-CERT /etc/pki/trust/anchors/
 /usr/sbin/update-ca-certificates
+rm -rf /etc/zypp/repos.d/suseman* > /tmp/removed-at-prescript
      ]]></source>
    </script>
   </pre-scripts>
