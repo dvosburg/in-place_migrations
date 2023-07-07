@@ -1,0 +1,463 @@
+<?xml version="1.0"?>
+<!DOCTYPE profile>
+<!-- Profile updated by dvosburg at suse dot com 20220428 - Upgrade to SLES 15 SP3
+It assumes system variables plus these entered on the variables tab:
+org='organization_id'
+distrotree='autoinstallation_distribution_label'
+channel_prefix='clm_channel_prefix' or blank for SCC channels
+registration_key='activation_key_for_post_upgrade'
+-->
+<profile xmlns="http://www.suse.com/1.0/yast2ns" xmlns:config="http://www.suse.com/1.0/configns">
+   <add-on>
+    <add_on_products config:type="list">
+<!-- All SLES 15 SP3 repos listed here - comment out what is unneeded -->
+   <!-- Manager Tools repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-manager-tools15-pool-$arch-sp3/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-manager-tools15-pool-$arch-sp3/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-15-Manager-Tools Pool</name>
+        <product>sle-manager-tools</product>
+     </listentry>
+     <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-manager-tools15-updates-$arch-sp3/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-manager-tools15-updates-$arch-sp3/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-15-Manager-Tools Updates</name>
+        <product>sle-manager-tools</product>
+      </listentry>
+   <!-- Base system repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-basesystem15-sp3-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-basesystem15-sp3-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Basesystem15-SP3 Pool for $arch SAP</name>
+        <product>sle-module-basesystem</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-basesystem15-sp3-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-basesystem15-sp3-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Basesystem15-sp3 Updates for $arch SAP</name>
+        <product>sle-module-basesystem</product>
+      </listentry>
+   <!-- Desktop applications repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-desktop-applications15-sp3-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-desktop-applications15-sp3-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Desktop-Applications15-sp3 Pool for $arch SAP</name>
+        <product>sle-module-desktop-applications</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-desktop-applications15-sp3-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-desktop-applications15-sp3-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Desktop-Applications15-sp3 Updates for $arch SAP</name>
+        <product>sle-module-desktop-applications</product>
+      </listentry>
+   <!-- Public cloud repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-public-cloud15-sp3-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-public-cloud15-sp3-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Public-Cloud15-sp3-Pool for $arch SAP</name>
+        <product>sle-module-public-cloud</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-public-cloud15-sp3-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-public-cloud15-sp3-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Public-Cloud15-sp3-Updates for $arch SAP</name>
+        <product>sle-module-public-cloud</product>
+      </listentry>
+    <!-- Python2 repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-python2-15-sp3-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-python2-15-sp3-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Python2-15-SP3-Pool for $arch SAP</name>
+        <product>sle-module-python2</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-python2-15-sp3-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-python2-15-sp3-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Python2-15-SP3-Updates for $arch SAP</name>
+        <product>sle-module-python2</product>
+      </listentry>
+    <!-- Server Applications repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-server-applications15-sp3-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-server-applications15-sp3-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Server-Applications15-sp3 Pool for $arch SAP</name>
+        <product>sle-module-server-applications</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-server-applications15-sp3-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-server-applications15-sp3-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Server-Applications15-sp3 Updates for $arch SAP</name>
+        <product>sle-module-server-applications</product>
+      </listentry>
+      <!-- web and scripting repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-web-scripting15-sp3-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-web-scripting15-sp3-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Web-Scripting15-sp3 Pool for $arch SAP</name>
+        <product>sle-module-web-scripting</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-web-scripting15-sp3-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-web-scripting15-sp3-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Web-Scripting15-sp3 Updates for $arch SAP</name>
+        <product>sle-module-web-scripting</product>
+      </listentry>
+    <!-- legacy repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-legacy15-sp3-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-legacy15-sp3-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Legacy15-SP3 Pool for $arch sap </name>
+        <product>sle-module-legacy</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-legacy15-sp3-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-legacy15-sp3-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Legacy15-SP3-Updates for $arch SAP </name>
+        <product>sle-module-legacy</product>
+      </listentry>
+   <!-- containers repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-containers15-sp3-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-containers15-sp3-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Containers15-SP3-Pool for $arch SAP</name>
+        <product>sle-module-containers</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-containers15-sp3-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-containers15-sp3-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Containers15-SP3-Updates for $arch SAP</name>
+        <product>sle-module-containers</product>
+      </listentry>
+    <!-- SLE15sp3 product updates -->
+       <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-product-sles15-sp3-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-product-sles15-sp3-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>SUSE Linux Enterprise Server 15 SP3 Updates for $arch</name>
+        <product>SLES</product>
+      </listentry>
+     <!-- SLE15SP3 Installer updates -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle15-sp3-installer-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle15-sp3-installer-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>SUSE Linux Enterprise Server 15 SP3 Installer Updates for $arch</name>
+        <product>SLES</product>
+      </listentry>
+<!-- Here are additional repositories that are commented out.  Remove comment marks to incorporate them -->
+  <!-- Optional devtools15 repos
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-devtools15-sp3-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-devtools15-sp3-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-DevTools15-SP3-Pool for $arch SAP</name>
+        <product>sle-module-dev-tools</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-devtools15-sp3-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-devtools15-sp3-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-DevTools15-SP3-Updates for $arch SAP</name>
+        <product>sle-module-dev-tools</product>
+      </listentry>  -->
+   <!-- Optional livepatching repos
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-live-patching15-sp3-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-live-patching15-sp3-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Live Patching-sp3-Pool for $arch SAP</name>
+        <product>sle-module-live-patching</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-live-patching15-sp3-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-live-patching15-sp3-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Live Patching-sp3-Updates for $arch SAP</name>
+        <product>sle-module-live-patching</product>
+      </listentry>
+      -->
+    <!-- Optional HA repos
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-product-ha15-sp3-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-product-ha15-sp3-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-HA-sp3-Pool for $arch SAP</name>
+        <product>sle-ha</product>
+      </listentry>
+	  <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-product-ha15-sp3-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-product-ha15-sp3-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-HA-sp3-Updates for $arch SAP</name>
+        <product>sle-ha</product>
+      </listentry>
+      -->
+  <!-- End of commented out repositories -->
+    </add_on_products>
+  </add-on>
+  <upgrade>
+    <only_installed_packages config:type="boolean">false</only_installed_packages>
+    <stop_on_solver_conflict config:type="boolean">true</stop_on_solver_conflict>
+  </upgrade>
+  <software>
+    <products config:type="list">
+      <product>SLES</product>
+    </products>
+  <!-- Add any desired additional packages or patterns here -->
+    <packages config:type="list">
+      <package>autoyast2-installation</package>
+      <package>sle-manager-tools-release</package>
+    </packages>
+    <patterns config:type="list">
+      <pattern>base</pattern>
+    </patterns>
+  <!-- Remove  any deprecated or obsoleted packages and/or patterns here -->
+  <remove-packages  config:type="list">
+      <package>desktop-data-SLED</package>
+      <package>acpid</package>
+      <package>lukemftp</package>
+      <package>yast2-wagon</package>
+      <package>suse-sam-data</package>
+      <package>rhn-org-trusted-ssl-cert</package>
+      <package>ifplugd</package>
+      <package>libcryptsetup1</package>
+      <package>libgnutls26</package>
+      <package>grub</package>
+      <package>SuSEfirewall2</package>
+      <package>python2-salt</package>
+  </remove-packages>
+  </software>
+  <backup>
+    <sysconfig config:type="boolean">true</sysconfig>
+    <modified config:type="boolean">true</modified>
+    <remove_old config:type="boolean">false</remove_old>
+  </backup>
+  <networking>
+    <keep_install_network config:type="boolean">true</keep_install_network>
+    <start_immediately config:type="boolean">true</start_immediately>
+  </networking>
+<general>
+  <signature-handling>
+    <accept_unsigned_file         config:type="boolean">true</accept_unsigned_file>
+    <accept_file_without_checksum config:type="boolean">true</accept_file_without_checksum>
+    <accept_verification_failed   config:type="boolean">true</accept_verification_failed>
+    <accept_unknown_gpg_key       config:type="boolean">true</accept_unknown_gpg_key>
+    <import_gpg_key               config:type="boolean">true</import_gpg_key>
+    <accept_non_trusted_gpg_key   config:type="boolean">true</accept_non_trusted_gpg_key>
+  </signature-handling>
+  <mode>
+    <confirm config:type="boolean">false</confirm>
+<!-- Second stage of the yast installer is not needed for an upgrade profile -->
+	<second_stage config:type="boolean">false</second_stage>
+  </mode>
+</general>
+<scripts>
+  <pre-scripts config:type="list">
+<!-- This script is designed to ensure the certificate is present for any 'https' repositories -->
+  <script>
+      <rerun config:type="boolean">false</rerun>
+        <debug config:type="boolean">true</debug>
+        <feedback config:type="boolean">false</feedback>
+        <filename>01_install_cert</filename>
+        <interpreter>shell</interpreter>
+        <location/>
+        <notification>Installing repository certificate</notification>
+        <source><![CDATA[
+/usr/bin/wget -nv -r -nd --no-check-certificate https://$redhat_management_server/pub/RHN-ORG-TRUSTED-SSL-CERT
+mv RHN-ORG-TRUSTED-SSL-CERT /etc/pki/trust/anchors/
+/usr/sbin/update-ca-certificates
+     ]]></source>
+   </script>
+  </pre-scripts>
+<!-- This script is designed to ensure the certificate is present for any 'https' repositories, and remove old repositories -->
+  <chroot-scripts config:type="list">
+    <script>
+      <debug config:type="boolean">true</debug>
+      <feedback config:type="boolean">false</feedback>
+      <filename>chroot.sh</filename>
+        <interpreter>shell</interpreter>
+        <notification>Removing old repository info</notification>
+        <source><![CDATA[
+zypper ms -d --all
+zypper ms -e --medium-type plugin
+zypper mr -d --all
+zypper mr -e --medium-type plugin
+rm -rf /etc/zypp/repos.d/http*
+rm -rf /mnt/etc/zypp/repos.d/space* >/mnt/tmp/removed-at-chroot
+/usr/bin/wget -nv -r -nd --no-check-certificate https://$redhat_management_server/pub/RHN-ORG-TRUSTED-SSL-CERT
+mv RHN-ORG-TRUSTED-SSL-CERT /mnt/etc/pki/trust/anchors/
+/usr/sbin/update-ca-certificates
+]]>
+        </source>
+      </script>
+    </chroot-scripts>
+  <init-scripts config:type="list">
+<!-- This script is designed to remove a bad GPG key, clean repositories, remove the reinstallation grub entery,  and register the system as a salt minion -->
+    <script>
+        <rerun config:type="boolean">false</rerun>
+        <debug config:type="boolean">true</debug>
+        <feedback config:type="boolean">false</feedback>
+        <filename>01_remove_remnants_and_register</filename>
+        <interpreter>shell</interpreter>
+        <location/>
+        <network_needed config:type="boolean">true</network_needed>
+        <notification>Remove installation remnants and register</notification>
+        <source><![CDATA[
+cat <<EOF >"/etc/salt/minion.d/susemanager.conf"
+master: $redhat_management_server
+
+EOF
+#if $varExists('registration_key') or $varExists('redhat_management_key')
+cat <<EOF >>"/etc/salt/minion.d/susemanager.conf"
+grains:
+    susemanager:
+EOF
+#end if
+#if $varExists('redhat_management_key')
+cat <<EOF >>"/etc/salt/minion.d/susemanager.conf"
+        management_key: "$redhat_management_key"
+EOF
+#end if
+#if $varExists('registration_key')
+cat <<EOF >>"/etc/salt/minion.d/susemanager.conf"
+        activation_key: "$registration_key"
+EOF
+#end if
+
+
+#if not $varExists('dont_register')
+# if you don't want to register, set the 'dont_register' variable
+
+systemctl restart salt-minion
+systemctl enable salt-minion
+#end if
+
+#if not $varExists('dont_disable_automatic_onlineupdate')
+YAOU_SYSCFGFILE="/etc/sysconfig/automatic_online_update"
+if [ -f "$YAOU_SYSCFGFILE" ]; then
+  echo "* Disable YAST automatic online update."
+  sed -i 's/^ *AOU_ENABLE_CRONJOB.*/AOU_ENABLE_CRONJOB="false"/' "$YAOU_SYSCFGFILE"
+  for D in /etc/cron.*; do
+    test -L $D/opensuse.org-online_update && rm $D/opensuse.org-online_update
+  done
+fi
+#end if
+
+#if not $varExists('dont_disable_local_repos')
+echo "* Disable all repos not provided by SUSE Manager Server."
+zypper ms -d --all
+zypper ms -e --medium-type plugin
+zypper mr -d --all
+zypper mr -e --medium-type plugin
+rm -rf /etc/zypp/repos.d/http*
+rpm -e gpg-pubkey-3d25d3d9-36e12d04 > /tmp/clean11
+#end if
+# Clean up the SUMA reinstallation boot entry
+rm -rf /etc/grub.d/42_uyuni_reinstall
+rm -rf /boot/uyuni-reinstall-kernel /boot/uyuni-reinstall-initrd
+/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
+# end reinstallation cleanup
+systemctl stop salt-minion
+sleep 10
+systemctl start salt-minion
+                ]]></source>
+     </script>
+  </init-scripts>
+</scripts>
+</profile>
