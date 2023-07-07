@@ -288,6 +288,18 @@ registration_key='activation_key_for_post_upgrade'
         <product>sle-ha</product>
       </listentry>
       -->
+      <!-- SLE15sp3 LTSS updates
+       <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-product-sle-product-sles15-sp3-ltss-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-product-sles15-sp3-ltss-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>SUSE Linux Enterprise Server 15 SP3 LTSS Updates for $arch</name>
+        <product>SLES</product>
+      </listentry>
+      -->
   <!-- End of commented out repositories -->
     </add_on_products>
   </add-on>
