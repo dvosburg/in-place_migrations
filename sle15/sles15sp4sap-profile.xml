@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE profile>
-<!-- Profile updated by dvosburg at suse dot com 20230615 - Upgrade to SLES 15 SP4 for SAP
+<!-- Profile updated by dvosburg at suse dot com 20230818 - Upgrade to SLES 15 SP4 for SAP
 It assumes system variables plus these entered on the variables tab:
 org='organization_id'
 distrotree='autoinstallation_distribution_label'
@@ -257,9 +257,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-legacy15-sp4-pool-$arch-sap/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-legacy15-sp4-updates-$arch-sap/$distrotree</media_url>
         #else
-        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-legacy15-sp4-pool-$arch-sap/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-legacy15-sp4-updates-$arch-sap/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Legacy15-SP3-Updates for $arch SAP </name>
         <product>sle-module-legacy</product>
@@ -309,6 +309,7 @@ registration_key='activation_key_for_post_upgrade'
       <package>autoyast2-installation</package>
       <package>autoyast2</package>
       <package>sle-manager-tools-release</package>
+      <package>issue-generator</package>
       <!-- added to fix samba dependencies -->
       <package>libldb2</package>
     </packages>
@@ -395,7 +396,7 @@ registration_key='activation_key_for_post_upgrade'
       <package>gutenprint</package>
       <package>perl-32bit</package>
       <package>libftgl2</package>
-      <!-- samba deprecated packages and others in SLES15 SP3 for SAP -->
+      <!-- samba deprecated packages and others in SLES15 SP3+ for SAP -->
       <package>libsmbldap2</package>
       <package>libsmbldap0</package>
       <package>libsmbldap0-32bit</package>
@@ -421,6 +422,20 @@ registration_key='activation_key_for_post_upgrade'
       <package>samba-libs-32bit</package>
       <package>python3-ldb</package>
       <package>sle-manager-tools-release</package>
+      <package>crash-kmp-default</package>
+      <package>drbd-kmp-default</package>
+      <!-- python2 orphans harvested from a cloud migration to SLES15 SP4 for SAP -->
+      <package>libpython2_7-1_0</package>
+      <package>python-asn1crypto</package>
+      <package>python-base</package>
+      <package>python-enum34</package>
+      <package>python-ipaddress</package>
+      <package>python-packaging</package>
+      <package>python-pyparsing</package>
+      <package>python-python-dateutil</package>
+      <package>python-singledispatch</package>
+      <package>python-six</package>
+      <package>python-xml</package>
      </remove-packages>
   </software>
   <backup>
@@ -470,7 +485,7 @@ mv RHN-ORG-TRUSTED-SSL-CERT /etc/pki/trust/anchors/
 /mnt/usr/bin/zypper ms -e --medium-type plugin
 /mnt/usr/bin/zypper mr -d --all
 /mnt/usr/bin/zypper mr -e --medium-type plugin
-rm -rf /mnt/etc/zypp/repos.d/space* >/mnt/tmp/removed-at-chroot
+rm -rf /mnt/etc/zypp/repos.d/suseman* >/mnt/tmp/removed-at-chroot
 /usr/bin/wget -nv -r -nd --no-check-certificate https://$redhat_management_server/pub/RHN-ORG-TRUSTED-SSL-CERT
 mv RHN-ORG-TRUSTED-SSL-CERT /mnt/etc/pki/trust/anchors/
 /usr/sbin/update-ca-certificates
@@ -489,6 +504,8 @@ if [ ! -d "$SALT_MINION_CONF_DIR" ]; then
   SALT_MINION_CONF_DIR="/etc/salt/minion.d"
   SALT_MINION_SERVICE="salt-minion"
 fi
+# Clear cache
+rm -rf /var/cache/venv-salt-minion/*
 cat <<EOF >"$SALT_MINION_CONF_DIR/susemanager.conf"
 master: $redhat_management_server
 server_id_use_crc: adler32
