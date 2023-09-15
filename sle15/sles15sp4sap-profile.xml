@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE profile>
-<!-- Profile updated by dvosburg at suse dot com 20230818 - Upgrade to SLES 15 SP4 for SAP
+<!-- Profile updated by dvosburg at suse dot com 20230915 - Upgrade to SLES 15 SP4 for SAP
 It assumes system variables plus these entered on the variables tab:
 org='organization_id'
 distrotree='autoinstallation_distribution_label'
@@ -312,6 +312,7 @@ registration_key='activation_key_for_post_upgrade'
       <package>issue-generator</package>
       <!-- added to fix samba dependencies -->
       <package>libldb2</package>
+      <package>samba-libs-32bit</package>
     </packages>
     <patterns config:type="list">
       <pattern>base</pattern>
@@ -419,7 +420,6 @@ registration_key='activation_key_for_post_upgrade'
       <package>libsmbclient0</package>
       <package>libndr-krb5pac0</package>
       <package>libsmbconf0</package>
-      <package>samba-libs-32bit</package>
       <package>python3-ldb</package>
       <package>sle-manager-tools-release</package>
       <package>crash-kmp-default</package>
