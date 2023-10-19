@@ -1,0 +1,655 @@
+<?xml version="1.0"?>
+<!DOCTYPE profile>
+<!-- Profile updated by dvosburg at suse dot com 20231019 - Upgrade to SLES 15 SP5 with salt-minion
+It assumes system variables plus these entered on the variables tab:
+org='organization_id'
+distrotree='autoinstallation_distribution_label'
+channel_prefix='clm_channel_prefix' or blank for SCC channels
+registration_key='activation_key_for_post_upgrade'
+-->
+<profile xmlns="http://www.suse.com/1.0/yast2ns" xmlns:config="http://www.suse.com/1.0/configns">
+   <add-on>
+    <add_on_products config:type="list">
+<!-- All SLES 15 SP5 repos listed here - comment out what is unneeded -->
+   <!-- Manager Tools repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-manager-tools15-pool-$arch-sp5/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-manager-tools15-pool-$arch-sp5/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-15-Manager-Tools Pool</name>
+        <product>sle-manager-tools</product>
+     </listentry>
+     <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-manager-tools15-updates-$arch-sp5/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-manager-tools15-updates-$arch-sp5/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-15-Manager-Tools Updates</name>
+        <product>sle-manager-tools</product>
+      </listentry>
+   <!-- Base system repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-basesystem15-sp5-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-basesystem15-sp5-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Basesystem15-SP5 Pool for $arch</name>
+        <product>sle-module-basesystem</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-basesystem15-sp5-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-basesystem15-sp5-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Basesystem15-sp5 Updates for $arch</name>
+        <product>sle-module-basesystem</product>
+      </listentry>
+   <!-- Desktop applications repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-desktop-applications15-sp5-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-desktop-applications15-sp5-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Desktop-Applications15-sp5 Pool for $arch</name>
+        <product>sle-module-desktop-applications</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-desktop-applications15-sp5-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-desktop-applications15-sp5-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Desktop-Applications15-sp5 Updates for $arch</name>
+        <product>sle-module-desktop-applications</product>
+      </listentry>
+    <!-- Developer tools repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-devtools15-sp5-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-devtools15-sp5-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-DevTools15-SP5-Pool for $arch</name>
+        <product>sle-module-dev-tools</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-devtools15-sp5-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-devtools15-sp5-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-DevTools15-SP5-Updates for $arch</name>
+        <product>sle-module-dev-tools</product>
+      </listentry>
+   <!-- Public cloud repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-public-cloud15-sp5-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-public-cloud15-sp5-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Public-Cloud15-sp5-Pool for $arch</name>
+        <product>sle-module-public-cloud</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-public-cloud15-sp5-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-public-cloud15-sp5-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Public-Cloud15-sp5-Updates for $arch</name>
+        <product>sle-module-public-cloud</product>
+      </listentry>
+     <!-- Server Applications repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-server-applications15-sp5-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-server-applications15-sp5-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Server-Applications15-sp5 Pool for $arch</name>
+        <product>sle-module-server-applications</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-server-applications15-sp5-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-server-applications15-sp5-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Server-Applications15-sp5 Updates for $arch</name>
+        <product>sle-module-server-applications</product>
+      </listentry>
+      <!-- web and scripting repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-web-scripting15-sp5-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-web-scripting15-sp5-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Web-Scripting15-sp5 Pool for $arch</name>
+        <product>sle-module-web-scripting</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-web-scripting15-sp5-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-web-scripting15-sp5-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Web-Scripting15-sp5 Updates for $arch</name>
+        <product>sle-module-web-scripting</product>
+      </listentry>
+      <!-- Legacy repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-legacy15-sp5-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-legacy15-sp5-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Legacy15-SP5 Pool for $arch</name>
+        <product>sle-module-legacy</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-legacy15-sp5-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-legacy15-sp5-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Legacy15-SP5-Updates for $arch </name>
+        <product>sle-module-legacy</product>
+      </listentry>
+   <!-- containers repos -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-containers15-sp5-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-containers15-sp5-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Containers15-SP5-Pool for $arch</name>
+        <product>sle-module-containers</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-containers15-sp5-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-containers15-sp5-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Containers15-SP5-Updates for $arch</name>
+        <product>sle-module-containers</product>
+      </listentry>
+    <!-- SLE15sp5 product updates -->
+       <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-product-sles15-sp5-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-product-sles15-sp5-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>SUSE Linux Enterprise Server 15 SP5 Updates for $arch</name>
+        <product>SLES</product>
+      </listentry>
+     <!-- SLE15 Installer updates -->
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle15-sp5-installer-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle15-sp5-installer-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>SUSE Linux Enterprise Server 15 SP5 Installer Updates for $arch</name>
+        <product>SLES</product>
+      </listentry>
+<!-- Here are additional repositories that are commented out.  Remove comment marks to incorporate them -->
+       <!-- Optional livepatching repos
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-live-patching15-sp5-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-live-patching15-sp5-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Live Patching-sp5-Pool for $arch</name>
+        <product>sle-module-live-patching</product>
+      </listentry>
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-live-patching15-sp5-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-live-patching15-sp5-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-Live Patching-sp5-Updates for $arch</name>
+        <product>sle-module-live-patching</product>
+      </listentry>
+      -->
+    <!-- Optional HA repos
+      <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-product-ha15-sp5-pool-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-product-ha15-sp5-pool-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-HA-sp5-Pool for $arch</name>
+        <product>sle-ha</product>
+      </listentry>
+	  <listentry>
+        <ask_on_error config:type="boolean">true</ask_on_error>
+        #if $channel_prefix != ""
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-product-ha15-sp5-updates-$arch/$distrotree</media_url>
+        #else
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-product-ha15-sp5-updates-$arch/$distrotree</media_url>
+        #end if
+        <name>$channel_prefix SLE-Module-HA-sp5-Updates for $arch</name>
+        <product>sle-ha</product>
+      </listentry>
+      -->
+  <!-- End of commented out repositories -->
+    </add_on_products>
+  </add-on>
+  <upgrade>
+    <stop_on_solver_conflict config:type="boolean">true</stop_on_solver_conflict>
+  </upgrade>
+  <software>
+    <products config:type="list">
+      <product>SLES</product>
+    </products>
+  <!-- Add any desired additional packages or patterns here -->
+    <packages config:type="list">
+      <package>autoyast2-installation</package>
+      <package>sle-manager-tools-release</package>
+      <package>issue-generator</package>
+      <!-- Use salt bundle or salt-minion as needed.  This should match your original system. -->
+      <!-- <package>venv-salt-minion</package> -->
+      <package>salt-minion</package>
+    </packages>
+    <patterns config:type="list">
+      <pattern>base</pattern>
+    </patterns>
+  <!-- Remove  any deprecated or obsoleted packages and/or patterns here -->
+   <remove-packages  config:type="list">
+      <package>desktop-data-SLED</package>
+      <package>acpid</package>
+      <package>lukemftp</package>
+      <package>yast2-wagon</package>
+      <package>suse-sam-data</package>
+      <package>rhn-org-trusted-ssl-cert</package>
+      <package>ifplugd</package>
+      <package>libcryptsetup1</package>
+      <package>libgnutls26</package>
+      <package>grub</package>
+      <package>SuSEfirewall2</package>
+      <package>python2-salt</package>
+      <package>Mesa-libGLESv2-2</package>
+      <package>OpenPrintingPPDs-ghostscript</package>
+      <package>OpenPrintingPPDs-hpijs</package>
+      <package>OpenPrintingPPDs-postscript</package>
+      <package>bitmap</package>
+      <package>colord-gtk-lang</package>
+      <package>fastjar</package>
+      <package>finger</package>
+      <package>ft2demos</package>
+      <package>gnome-control-center-user-faces</package>
+      <package>inst-source-utils</package>
+      <package>ipw-firmware</package>
+      <package>joe</package>
+      <package>libLLVM6</package>
+      <package>libLLVM6-32bit</package>
+      <package>libadns1</package>
+      <package>libcmpiutil</package>
+      <package>libcroco-0_6-3-32bit</package>
+      <package>libdrm-tools</package>
+      <package>libfipscheck1-32bit</package>
+      <package>libgmime-2_6-0</package>
+      <package>libgtop-2_0-10</package>
+      <package>libgtop-lang</package>
+      <package>libidn-tools</package>
+      <package>libisc166-32bit</package>
+      <package>libjasper1</package>
+      <package>libjson-c2-32bit</package>
+      <package>libmediaart-2_0-0</package>
+      <package>libmozjs-17_0</package>
+      <package>libopenssl1_0_0-32bit</package>
+      <package>libpython2_7-1_0-32bit</package>
+      <package>libqpdf18</package>
+      <package>libseccomp2-32bit</package>
+      <package>libsemanage1-32bit</package>
+      <package>libsepol1-32bit</package>
+      <package>libustr-1_0-1-32bit</package>
+      <package>libx86emu1</package>
+      <package>listres</package>
+      <package>mingetty</package>
+      <package>os-prober</package>
+      <package>pango-32bit</package>
+      <package>pptp</package>
+      <package>python-bind</package>
+      <package>python-smbc</package>
+      <package>python-talloc-32bit</package>
+      <package>recode</package>
+      <package>xf86-input-void</package>
+      <package>yast2-metapackage-handler</package>
+      <package>libbind9-161</package>
+      <package>libdns1110</package>
+      <package>libffi4</package>
+      <package>libirs161</package>
+      <package>libisc1107</package>
+      <package>libjson-c2</package>
+      <package>liblwres161</package>
+      <package>libpython2_7-1_0</package>
+      <package>libreadline6</package>
+      <package>libruby2_1-2_1</package>
+      <package>python-2.7.13</package>
+<!-- Orphaned packages from SLES 11 -->
+      <package>apparmor-admin_en</package>
+      <package>boost-license</package>
+      <package>bootsplash-branding-SLES</package>
+      <package>brocade-firmware</package>
+      <package>cairo-32bit</package>
+      <package>cpufrequtils</package>
+      <package>cpufrequtils-32bit</package>
+      <package>dhcpcd</package>
+      <package>dmapi</package>
+      <package>elilo</package>
+      <package>fam</package>
+      <package>fbset</package>
+      <package>file-32bit</package>
+      <package>gfxboot</package>
+      <package>gfxboot-branding-SLES</package>
+      <package>ghostscript-omni</package>
+      <package>gmp</package>
+      <package>gtk2-theme-SLED</package>
+      <package>gtk2-32bit</package>
+      <package>gtk2-engines-32bit</package>
+      <package>hal-32bit</package>
+      <package>icom-firmware</package>
+      <package>ksymoops</package>
+      <package>lcms</package>
+      <package>libcdio7</package>
+      <package>libdb-4_5</package>
+      <package>libdb-4_5-32bit</package>
+      <package>libevent-1_4-2</package>
+      <package>libgcc43</package>
+      <package>libgcc43-32bit</package>
+      <package>libgcrypt11</package>
+      <package>libgcrypt11-32bit</package>
+      <package>libgimpprint</package>
+      <package>libgssglue1</package>
+      <package>libHX13</package>
+      <package>libHX13-32bit</package>
+      <package>libicu</package>
+      <package>libidn</package>
+      <package>libidn-32bit</package>
+      <package>libjpeg-32bit</package>
+      <package>liblcms1</package>
+      <package>liblcms1-32bit</package>
+      <package>libltdl7-32bit</package>
+      <package>libmng</package>
+      <package>libmng-32bit</package>
+      <package>libnet</package>
+      <package>libnetpbm10</package>
+      <package>libnl</package>
+      <package>libnscd</package>
+      <package>libopenct1</package>
+      <package>libopenct1-32bit</package>
+      <package>libopensc2</package>
+      <package>libopensc2-32bit</package>
+      <package>libopenssl0_9_8</package>
+      <package>libopenssl0_9_8-32bit</package>
+      <package>libpcap0</package>
+      <package>libpng12-0-32bit</package>
+      <package>libpoppler5</package>
+      <package>libproxy0</package>
+      <package>libpython2_6-1_0</package>
+      <package>libpython2_6-1_0-32bit</package>
+      <package>libreadline5</package>
+      <package>libreiserfs</package>
+      <package>libreiserfs-32bit</package>
+      <package>librpcsecgss</package>
+      <package>libsensors3</package>
+      <package>libsmbios2-32bit</package>
+      <package>libstdc++43</package>
+      <package>libstdc++43-32bit</package>
+      <package>libtasn1-3</package>
+      <package>libtiff3</package>
+      <package>libudev0</package>
+      <package>libudev0-32bit</package>
+      <package>libx86</package>
+      <package>libxcrypt</package>
+      <package>libxcrypt-32bit</package>
+      <package>libxslt</package>
+      <package>libxslt-32bit</package>
+      <package>libxtables9</package>
+      <package>licenses</package>
+      <package>opensc-32bit</package>
+      <package>opie</package>
+      <package>pango-32bit</package>
+      <package>PolicyKit-32bit</package>
+      <package>providers</package>
+      <package>pth</package>
+      <package>python</package>
+      <package>python-backports.ssl_match_hostname</package>
+      <package>python-base</package>
+      <package>python-jabberpy</package>
+      <package>python-m2crypto</package>
+      <package>python-openssl</package>
+      <package>python-xml</package>
+      <package>python-yaml</package>
+      <package>python2-mgr-osa-common</package>
+      <package>python2-rhnlib</package>
+      <package>python2-uyuni-common-libs</package>
+      <package>sash</package>
+      <package>scpm</package>
+      <package>ulimit</package>
+      <package>utempter-32bit</package>
+      <package>wdiff</package>
+      <package>xorg-x11-libfontenc-32bit</package>
+      <package>xorg-x11-libs-32bit</package>
+      <package>xorg-x11-libX11-32bit</package>
+      <package>xorg-x11-libxcb-32bit</package>
+      <package>xorg-x11-libXext-32bit</package>
+      <package>xorg-x11-libXfixes-32bit</package>
+      <package>xorg-x11-libxkbfile-32bit</package>
+      <package>xorg-x11-libXmu-32bit</package>
+      <package>xorg-x11-libXp-32bit</package>
+      <package>xorg-x11-libXpm-32bit</package>
+      <package>xorg-x11-libXprintUtil-32bit</package>
+      <package>xorg-x11-libXrender-32bit</package>
+      <package>xorg-x11-libXt-32bit</package>
+      <package>xorg-x11-libXv-32bit</package>
+      <package>yast2-autofs</package>
+      <package>yast2-irda</package>
+      <package>yast2-iscsi-server</package>
+      <package>yast2-power-management</package>
+      <package>yast2-registration-branding-SLE</package>
+      <package>yast2-restore</package>
+      <package>yast2-sshd</package>
+   </remove-packages>
+  </software>
+  <backup>
+    <sysconfig config:type="boolean">true</sysconfig>
+    <modified config:type="boolean">true</modified>
+    <remove_old config:type="boolean">false</remove_old>
+  </backup>
+  <networking>
+    <keep_install_network config:type="boolean">true</keep_install_network>
+    <start_immediately config:type="boolean">true</start_immediately>
+  </networking>
+<general>
+  <signature-handling>
+    <accept_unsigned_file         config:type="boolean">true</accept_unsigned_file>
+    <accept_file_without_checksum config:type="boolean">true</accept_file_without_checksum>
+    <accept_verification_failed   config:type="boolean">true</accept_verification_failed>
+    <accept_unknown_gpg_key       config:type="boolean">true</accept_unknown_gpg_key>
+    <import_gpg_key               config:type="boolean">true</import_gpg_key>
+    <accept_non_trusted_gpg_key   config:type="boolean">true</accept_non_trusted_gpg_key>
+  </signature-handling>
+  <mode>
+    <confirm config:type="boolean">false</confirm>
+<!-- Second stage of the yast installer is not needed for an upgrade profile -->
+    <second_stage config:type="boolean">false</second_stage>
+  </mode>
+</general>
+<scripts>
+  <pre-scripts config:type="list">
+<!-- This script is designed to ensure the certificate is present for any 'https' repositories -->
+  <script>
+      <rerun config:type="boolean">false</rerun>
+        <debug config:type="boolean">true</debug>
+        <feedback config:type="boolean">false</feedback>
+        <filename>01_install_cert</filename>
+        <interpreter>shell</interpreter>
+        <location/>
+        <notification>Installing repository certificate</notification>
+        <source><![CDATA[
+/usr/bin/wget -nv -r -nd --no-check-certificate https://$redhat_management_server/pub/RHN-ORG-TRUSTED-SSL-CERT
+mv RHN-ORG-TRUSTED-SSL-CERT /etc/pki/trust/anchors/
+/usr/sbin/update-ca-certificates
+     ]]></source>
+   </script>
+  </pre-scripts>
+<!-- This script is designed to ensure the certificate is present for any 'https' repositories, and remove old repositories -->
+  <chroot-scripts config:type="list">
+   <script>
+      <debug config:type="boolean">true</debug>
+      <feedback config:type="boolean">false</feedback>
+      <filename>chroot.sh</filename>
+        <interpreter>shell</interpreter>
+        <notification>Removing old repository info</notification>
+        <source><![CDATA[
+zypper ms -d --all
+zypper ms -e --medium-type plugin
+zypper mr -d --all
+zypper mr -e --medium-type plugin
+rm -rf /etc/zypp/repos.d/http*
+rm -rf /mnt/etc/zypp/repos.d/suseman* >/mnt/tmp/removed-at-chroot
+/usr/bin/wget -nv -r -nd --no-check-certificate https://$redhat_management_server/pub/RHN-ORG-TRUSTED-SSL-CERT
+mv RHN-ORG-TRUSTED-SSL-CERT /mnt/etc/pki/trust/anchors/
+/usr/sbin/update-ca-certificates
+]]>
+        </source>
+   </script>
+  </chroot-scripts>
+  <init-scripts config:type="list">
+<!-- This script is designed to register with the upgraded activation key and do post-deployment cleanup -->
+   <script>
+    <filename>uyuni-minion.sh</filename>
+    <source>
+        <![CDATA[
+SALT_MINION_CONF_DIR="/etc/venv-salt-minion/minion.d"
+SALT_MINION_SERVICE="venv-salt-minion"
+if [ ! -d "$SALT_MINION_CONF_DIR" ]; then
+  SALT_MINION_CONF_DIR="/etc/salt/minion.d"
+  SALT_MINION_SERVICE="salt-minion"
+fi
+cat <<EOF >"$SALT_MINION_CONF_DIR/susemanager.conf"
+master: $redhat_management_server
+server_id_use_crc: adler32
+enable_legacy_startup_events: False
+enable_fqdns_grains: False
+mine_enabled: False
+
+EOF
+#set activation_keys = ""
+#set management_key  = ""
+#if $varExists('registration_key')
+   #set activation_keys = $registration_key
+#end if
+
+#if $varExists('redhat_management_key')
+   #set management_key = $redhat_management_key.split(",",1)[0]
+#end if
+
+#if not $activation_keys and $management_key
+  #set keys= $redhat_management_key.split(",",1)
+  #if len(keys) > 1
+     #set activation_keys = $keys[1]
+  #end if
+#end if
+
+#if $activation_keys or $management_key
+cat <<EOF >>"$SALT_MINION_CONF_DIR/susemanager.conf"
+grains:
+    susemanager:
+EOF
+#end if
+#if $management_key
+cat <<EOF >>"$SALT_MINION_CONF_DIR/susemanager.conf"
+        management_key: "$management_key"
+EOF
+#end if
+#if $activation_keys
+cat <<EOF >>"$SALT_MINION_CONF_DIR/susemanager.conf"
+        activation_key: "$activation_keys"
+EOF
+#end if
+
+#if not $varExists('dont_register')
+# if you don't want to register, set the 'dont_register' variable
+
+systemctl restart "$SALT_MINION_SERVICE"
+systemctl enable "$SALT_MINION_SERVICE"
+#end if
+
+#if not $varExists('dont_0disable_automatic_onlineupdate')
+YAOU_SYSCFGFILE="/etc/sysconfig/automatic_online_update"
+if [ -f "$YAOU_SYSCFGFILE" ]; then
+  echo "* Disable YAST automatic online update."
+  sed -i 's/^ *AOU_ENABLE_CRONJOB.*/AOU_ENABLE_CRONJOB="false"/' "$YAOU_SYSCFGFILE"
+  for D in /etc/cron.*; do
+    test -L $D/opensuse.org-online_update && rm $D/opensuse.org-online_update
+  done
+fi
+#end if
+
+#if not $varExists('dont_disable_local_repos')
+echo "* Disable all repos not provided by SUSE Manager Server."
+zypper ms -d --all
+zypper ms -e --medium-type plugin
+zypper mr -d --all
+zypper mr -e --medium-type plugin
+rm -rf /etc/zypp/repos.d/http* > /tmp/removed-at-init
+#end if
+
+# Clean up the SUMA reinstallation boot entry
+rm -rf /etc/grub.d/42_uyuni_reinstall
+rm -rf /boot/uyuni-reinstall-kernel /boot/uyuni-reinstall-initrd
+/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
+# end reinstallation cleanup
+
+# remove expired gpg key
+rpm -e gpg-pubkey-3d25d3d9-36e12d04
+
+systemctl stop "$SALT_MINION_SERVICE"
+sleep 10
+systemctl start "$SALT_MINION_SERVICE"
+sleep 30
+zypper -n up -l
+        ]]>
+    </source>
+   </script>
+  </init-scripts>
+ </scripts>
+</profile>
