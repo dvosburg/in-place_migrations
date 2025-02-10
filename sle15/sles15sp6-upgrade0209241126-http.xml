@@ -399,7 +399,7 @@ registration_key='activation_key_for_post_upgrade'
         <location/>
         <notification>Installing repository certificate</notification>
         <source><![CDATA[
-/usr/bin/wget -nv -r -nd --no-check-certificate http://$redhat_management_server/pub/RHN-ORG-TRUSTED-SSL-CERT
+/usr/bin/curl --insecure -o RHN-ORG-TRUSTED-SSL-CERT https://$redhat_management_server/pub/RHN-ORG-TRUSTED-SSL-CERT
 mv RHN-ORG-TRUSTED-SSL-CERT /etc/pki/trust/anchors/
 /usr/sbin/update-ca-certificates
      ]]></source>
@@ -420,7 +420,7 @@ zypper mr -d --all
 zypper mr -e --medium-type plugin
 rm -rf /etc/zypp/repos.d/http*
 rm -rf /mnt/etc/zypp/repos.d/suseman* >/mnt/tmp/removed-at-chroot
-/usr/bin/wget -nv -r -nd --no-check-certificate http://$redhat_management_server/pub/RHN-ORG-TRUSTED-SSL-CERT
+/usr/bin/curl --insecure -o RHN-ORG-TRUSTED-SSL-CERT https://$redhat_management_server/pub/RHN-ORG-TRUSTED-SSL-CERT
 mv RHN-ORG-TRUSTED-SSL-CERT /mnt/etc/pki/trust/anchors/
 /usr/sbin/update-ca-certificates
 ]]>
