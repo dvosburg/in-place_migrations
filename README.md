@@ -6,8 +6,10 @@ When doing an upgrade with SUSE Manager, you should have these entries in the Ke
 ```
 autoupgrade=1 insecure=1 useonlinerepo=1
 ```
-For further info on SUSE Manager in-place migrations - see this project wiki for docs in progress
+For further info on SUSE Multi-Linux Manager in-place migrations - see this project wiki for docs in progress
 https://github.com/dvosburg/in-place_migrations/wiki
 
-And the official SUMA documentation on Provisioning:
+And the official Multi-Linux Manager documentation on Provisioning:
 https://documentation.suse.com/suma/4.3/en/suse-manager/reference/systems/system-details/sd-provisioning.html
+
+https://documentation.suse.com/suma/5.0/en/suse-manager/reference/systems/system-details/sd-provisioning.html
