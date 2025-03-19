@@ -15,9 +15,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-manager-tools15-pool-$arch-sp6/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-manager-tools15-pool-$arch-sp6/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-manager-tools15-pool-$arch-sp6/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-manager-tools15-pool-$arch-sp6/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-15-Manager-Tools Pool</name>
         <product>sle-manager-tools</product>
@@ -25,9 +25,9 @@ registration_key='activation_key_for_post_upgrade'
      <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-manager-tools15-updates-$arch-sp6/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-manager-tools15-updates-$arch-sp6/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-manager-tools15-updates-$arch-sp6/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-manager-tools15-updates-$arch-sp6/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-15-Manager-Tools Updates</name>
         <product>sle-manager-tools</product>
@@ -36,9 +36,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-basesystem15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-basesystem15-sp6-pool-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-basesystem15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-basesystem15-sp6-pool-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Basesystem15-SP6 Pool for $arch</name>
         <product>sle-module-basesystem</product>
@@ -46,9 +46,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-basesystem15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-basesystem15-sp6-updates-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-basesystem15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-basesystem15-sp6-updates-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Basesystem15-sp6 Updates for $arch</name>
         <product>sle-module-basesystem</product>
@@ -57,9 +57,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-desktop-applications15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-desktop-applications15-sp6-pool-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-desktop-applications15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-desktop-applications15-sp6-pool-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Desktop-Applications15-sp6 Pool for $arch</name>
         <product>sle-module-desktop-applications</product>
@@ -67,9 +67,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-desktop-applications15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-desktop-applications15-sp6-updates-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-desktop-applications15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-desktop-applications15-sp6-updates-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Desktop-Applications15-sp6 Updates for $arch</name>
         <product>sle-module-desktop-applications</product>
@@ -78,9 +78,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-devtools15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-devtools15-sp6-pool-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-devtools15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-devtools15-sp6-pool-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-DevTools15-SP6-Pool for $arch</name>
         <product>sle-module-dev-tools</product>
@@ -88,9 +88,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-devtools15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-devtools15-sp6-updates-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-devtools15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-devtools15-sp6-updates-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-DevTools15-SP6-Updates for $arch</name>
         <product>sle-module-dev-tools</product>
@@ -99,9 +99,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-public-cloud15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-public-cloud15-sp6-pool-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-public-cloud15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-public-cloud15-sp6-pool-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Public-Cloud15-sp6-Pool for $arch</name>
         <product>sle-module-public-cloud</product>
@@ -109,9 +109,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-public-cloud15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-public-cloud15-sp6-updates-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-public-cloud15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-public-cloud15-sp6-updates-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Public-Cloud15-sp6-Updates for $arch</name>
         <product>sle-module-public-cloud</product>
@@ -120,9 +120,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-server-applications15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-server-applications15-sp6-pool-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-server-applications15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-server-applications15-sp6-pool-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Server-Applications15-sp6 Pool for $arch</name>
         <product>sle-module-server-applications</product>
@@ -130,9 +130,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-server-applications15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-server-applications15-sp6-updates-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-server-applications15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-server-applications15-sp6-updates-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Server-Applications15-sp6 Updates for $arch</name>
         <product>sle-module-server-applications</product>
@@ -141,9 +141,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-web-scripting15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-web-scripting15-sp6-pool-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-web-scripting15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-web-scripting15-sp6-pool-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Web-Scripting15-sp6 Pool for $arch</name>
         <product>sle-module-web-scripting</product>
@@ -151,9 +151,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-web-scripting15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-web-scripting15-sp6-updates-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-web-scripting15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-web-scripting15-sp6-updates-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Web-Scripting15-sp6 Updates for $arch</name>
         <product>sle-module-web-scripting</product>
@@ -162,9 +162,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-legacy15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-legacy15-sp6-pool-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-legacy15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-legacy15-sp6-pool-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Legacy15-SP6 Pool for $arch</name>
         <product>sle-module-legacy</product>
@@ -172,9 +172,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-legacy15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-legacy15-sp6-updates-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-legacy15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-legacy15-sp6-updates-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Legacy15-SP6-Updates for $arch </name>
         <product>sle-module-legacy</product>
@@ -183,9 +183,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-containers15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-containers15-sp6-pool-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-containers15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-containers15-sp6-pool-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Containers15-SP6-Pool for $arch</name>
         <product>sle-module-containers</product>
@@ -193,9 +193,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-containers15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-containers15-sp6-updates-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-containers15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-containers15-sp6-updates-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Containers15-SP6-Updates for $arch</name>
         <product>sle-module-containers</product>
@@ -204,9 +204,9 @@ registration_key='activation_key_for_post_upgrade'
        <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-product-sles15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-product-sles15-sp6-updates-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-product-sles15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-product-sles15-sp6-updates-$arch/$distrotree</media_url>
         #end if
         <name>SUSE Linux Enterprise Server 15 SP6 Updates for $arch</name>
         <product>SLES</product>
@@ -215,9 +215,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle15-sp6-installer-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle15-sp6-installer-updates-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle15-sp6-installer-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle15-sp6-installer-updates-$arch/$distrotree</media_url>
         #end if
         <name>SUSE Linux Enterprise Server 15 SP6 Installer Updates for $arch</name>
         <product>SLES</product>
@@ -227,9 +227,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-live-patching15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-live-patching15-sp6-pool-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-live-patching15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-live-patching15-sp6-pool-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Live Patching-sp6-Pool for $arch</name>
         <product>sle-module-live-patching</product>
@@ -237,9 +237,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-live-patching15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-module-live-patching15-sp6-updates-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-module-live-patching15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-module-live-patching15-sp6-updates-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-Live Patching-sp6-Updates for $arch</name>
         <product>sle-module-live-patching</product>
@@ -249,9 +249,9 @@ registration_key='activation_key_for_post_upgrade'
       <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-product-ha15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-product-ha15-sp6-pool-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-product-ha15-sp6-pool-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-product-ha15-sp6-pool-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-HA-sp6-Pool for $arch</name>
         <product>sle-ha</product>
@@ -259,9 +259,9 @@ registration_key='activation_key_for_post_upgrade'
 	  <listentry>
         <ask_on_error config:type="boolean">true</ask_on_error>
         #if $channel_prefix != ""
-        <media_url>http://$redhat_management_server/ks/dist/child/$channel_prefix-sle-product-ha15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/$channel_prefix-sle-product-ha15-sp6-updates-$arch/$distrotree</media_url>
         #else
-        <media_url>http://$redhat_management_server/ks/dist/child/sle-product-ha15-sp6-updates-$arch/$distrotree</media_url>
+        <media_url>https://$redhat_management_server/ks/dist/child/sle-product-ha15-sp6-updates-$arch/$distrotree</media_url>
         #end if
         <name>$channel_prefix SLE-Module-HA-sp6-Updates for $arch</name>
         <product>sle-ha</product>
